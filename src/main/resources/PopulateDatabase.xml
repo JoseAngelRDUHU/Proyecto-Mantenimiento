@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- * PopulateDatabase.xml * * Copyright (C) 2018 Universidad de Sevilla 
+	* * The use of this project is hereby constrained to the conditions of the 
+	* TDG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin" />
+		<property name="password"
+			value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="editor" />
+		<property name="password"
+			value="5aee9dbd2a188839105073571bee1b1f" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="EDITOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="reader" />
+		<property name="password"
+			value="1de9b0a30075ae8c303eb420c103c320" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="READER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="admin2" />
+		<property name="password"
+				  value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount5" class="security.UserAccount">
+		<property name="username" value="reader2" />
+		<property name="password"
+				  value="1de9b0a30075ae8c303eb420c103c320" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="READER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount6" class="security.UserAccount">
+		<property name="username" value="editor2" />
+		<property name="password"
+				  value="5aee9dbd2a188839105073571bee1b1f" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="EDITOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Administrators -->
+
+	<bean id="administrator1" class="domain.Administrator">
+		<property name="name" value="Administrador" />
+		<property name="email" value="administrator@mail.com"/>
+		<property name="phone" value="+34 123456789"/>
+		<property name="userAccount" ref="userAccount1"/>
+	</bean>
+
+	<bean id="administrator2" class="domain.Administrator">
+		<property name="name" value="Administrador" />
+		<property name="email" value="administrator@mail.com"/>
+		<property name="phone" value="+34 123456789"/>
+		<property name="userAccount" ref="userAccount4"/>
+	</bean>
+
+	<!-- Editor -->
+
+	<bean id="editor1" class="domain.Editor">
+		<property name="name" value="Editor" />
+		<property name="email" value="Editor@mail.com"/>
+		<property name="phone" value="+34 123456789"/>
+		<property name="userAccount" ref="userAccount2"/>
+		<property name="articles">
+			<list>
+				<ref bean="article1"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="editor2" class="domain.Editor">
+		<property name="name" value="Editor" />
+		<property name="email" value="Editor@mail.com"/>
+		<property name="phone" value="+34 123456789"/>
+		<property name="userAccount" ref="userAccount6"/>
+		<property name="articles">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- Readers -->
+
+	<bean id="reader1" class="domain.Reader">
+		<property name="name" value="Reader" />
+		<property name="email" value="reader@mail.com"/>
+		<property name="phone" value="+34 123456789"/>
+		<property name="userAccount" ref="userAccount3"/>
+	</bean>
+
+	<bean id="reader2" class="domain.Reader">
+		<property name="name" value="Reader2" />
+		<property name="email" value="reader@mail.com"/>
+		<property name="phone" value="+34 123456789"/>
+		<property name="userAccount" ref="userAccount5"/>
+	</bean>
+
+	<!-- Category -->
+
+	<bean id="category1" class="domain.Category">
+		<property name="name" value="Ciencia"/>
+		<property name="description" value="Noticias sobre ciencias"/>
+		<property name="articles">
+			<list>
+				<ref bean="article1"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="category2" class="domain.Category">
+		<property name="name" value="Deportes"/>
+		<property name="description" value="Noticias sobre deportes en general"/>
+		<property name="articles">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+
+	<!-- Article -->
+
+	<bean id="article1" class="domain.Article">
+		<property name="title" value="Un grupo de científicos españoles descubre una
+		nueva especie de medusa luminiscente en las costas de Almería"/>
+		<property name="body" value="Un equipo de biólogos marinos del Instituto Español de Oceanografía (IEO) ha
+		descubierto una nueva especie de medusa luminiscente en aguas profundas del mar de Alborán, frente a las costas
+		de Almería. El hallazgo ha sido publicado esta semana en la revista científica Marine Biology Letters y
+		ha despertado el interés de la comunidad científica internacional. La especie, bautizada como Pelagia lucentis,
+		destaca por su capacidad de emitir destellos de luz azulada en patrones rítmicos, un fenómeno poco habitual
+		entre las medusas del Mediterráneo. Según los investigadores, este comportamiento podría estar relacionado
+		con la comunicación intraespecífica o un mecanismo de defensa frente a depredadores. “La encontramos a unos
+		600 metros de profundidad, en un ecosistema muy poco explorado”, explica la doctora Clara Montes, directora
+		del proyecto. “Lo más fascinante es su bioluminiscencia, que nunca habíamos observado con esta intensidad en
+		esta región”. El descubrimiento podría tener aplicaciones futuras en el campo de la biotecnología,
+		especialmente en el desarrollo de biosensores y técnicas de imagen médica, debido a las propiedades únicas
+		de sus proteínas fluorescentes."/>
+		<property name="publicationMoment" value="19/05/2025 11:26"/>
+		<property name="commentsEnabled" value="true"/>
+		<property name="coverImageUrl" value="https://www.ecologistasenaccion.org/wp-content/uploads/2023/07/SebastianHernandisCaballero_Pelagia-noctiluca.jpg"/>
+		<property name="videoLink" value="https://www.youtube.com/embed/yeBawlIeIck"/>
+		<property name="author" ref="editor1"/>
+		<property name="category" ref="category1"/>
+		<property name="comments">
+			<list>
+				<ref bean="comment1"/>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="article2" class="domain.Article">
+		<property name="title" value="Una alegría para Fernando Alonso en Montmeló: sin pitos al himno y soberbia vuelta final"/>
+		<property name="body" value="Una formidable última vuelta, cerrada en 1:18.128, permitió sumar dos puntos a Fernando Alonso en Montmeló.
+		Con ese esfuerzo postrero, el bicampeón superó en la tabla de tiempos a Max Verstappen. Apenas 262 milésimas. Lo justo para dejar atrás al
+		holandés, castigado con 10 segundos por un controvertido incidente con George Russell. Sigue a tope porque podría haber penalizaciones por delante,
+		advirtieron a Alonso a través de la radio. Y el asturiano cumplió con creces, estableciendo el cuarto mejor crono en ese último giro, sólo por detrás de
+		Oscar Piastri (1:17.445), Lando Norris (1:17.519) y el propio Verstappen (1:18.081). Tras cruzar la línea de meta, cuando aún no tenía muy claro qué
+		posición final le correspondía, Alonso se limitó a saludar a la afición de Montmeló. Durante ese momento de gozo no quiso comentar nada por la
+		radio. Había sido otra carrera muy dura, con acuciantes problemas de degradación, sobre todo en los neumáticos delanteros. De hecho,
+		sus ingenieros le habían pedido que no forzara tanto en las curvas 9 y 14. En vano, porque su réplica no dejó lugar a la duda: Olvidadlo."/>
+		<property name="publicationMoment" value="01/06/2025 19:06"/>
+		<property name="commentsEnabled" value="true"/>
+		<property name="coverImageUrl" value="https://phantom-elmundo.uecdn.es/60c2642c98040327eb1a551231d3e924/resize/646/f/webp/assets/multimedia/imagenes/2025/06/01/17487966069773.jpg"/>
+		<property name="videoLink" value="https://www.youtube.com/embed/BIrMLnRLsCw"/>
+		<property name="author" ref="editor2"/>
+		<property name="category" ref="category2"/>
+		<property name="comments">
+			<list>
+				<ref bean="comment2"/>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- Comment -->
+	
+	<bean id="comment1" class="domain.Comment">
+		<property name="text" value="¡Qué pasada! Siempre me ha fascinado la bioluminiscencia, y que se haya
+		descubierto una nueva especie aquí mismo, en nuestras costas, me parece increíble. A veces no somos
+		conscientes de la riqueza que hay en el fondo del mar. Ojalá se invierta más en investigación marina, porque
+		seguro que queda muchísimo por descubrir. ¡Enhorabuena al equipo del IEO!"/>
+		<property name="publicationMoment" value="19/05/2025 17:24"/>
+		<property name="author" ref="reader1"/>
+		<property name="article" ref="article1"/>
+	</bean>
+
+
+	<bean id="comment2" class="domain.Comment">
+		<property name="text" value="Vaya maquinote el Fernandito. Esta hecho un picha brava"/>
+		<property name="publicationMoment" value="01/06/2025 19:06"/>
+		<property name="author" ref="reader1"/>
+		<property name="article" ref="article2"/>
+	</bean>
+
+	<!-- Other domain beans come here -->
+
+	
+</beans>

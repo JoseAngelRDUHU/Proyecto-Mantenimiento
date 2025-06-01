@@ -1,0 +1,97 @@
+/* Tipografía base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Títulos */
+h1, h3, h4 {
+    color: #2c3e50;
+}
+
+/* Botones */
+button, input[type="submit"], input[type="button"] {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+    background-color: #1f5d86;
+}
+
+/* Formularios */
+form textarea, form input[type="text"], form input[type="password"] {
+    width: 15%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+textarea.comment-box {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    background-color: #fdfdfd;
+    resize: vertical;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+/* Tarjeta de comentario */
+.comment-box {
+    width: 50%;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Imagen del artículo */
+img {
+    border-radius: 4px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Enlaces */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Mensajes */
+.error, .message {
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+.message {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}

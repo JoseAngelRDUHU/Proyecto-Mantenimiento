@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+
+.horizontal-nav {
+    display: flex;
+}
+
+.hover-link {
+    display: inline;
+    color: black;
+    margin-right: 10px; /* Espacio entre los enlaces */
+    text-decoration: none; /* Quitar subrayado por defecto */
+}
+
+.hover-link:hover {
+    color: pink; /* Cambiar color al pasar el ratón */
+}
